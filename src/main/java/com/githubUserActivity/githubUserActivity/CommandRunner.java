@@ -7,9 +7,12 @@ import org.springframework.stereotype.Component;
 public class CommandRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("Arguments: ");
-        for (String arg : args) {
-            System.out.println(arg);
+        if(args.length<2){
+            System.out.println("Usage: github-activity <github-username>");
+            return;
         }
+        String username = args[1];
+        System.out.println("Output: ");
+        System.out.println(username);
     }
 }
